@@ -18,7 +18,27 @@ namespace CSharp
             short level = 100;
             long id;
 
-            Console.WriteLine("Hello Number ! {0}", hp);
+            //Console.WriteLine("Hello Number ! {0}", hp);
+
+            // bool (1 byte) : true / false
+            bool b;
+
+            // 소수
+            float f; // 4 byte
+            f = 3.14f; // 일반적으로 7 자리 까지 정밀
+
+            double d; // 8 byte
+            d = 3.14;
+
+            // 문자
+            char c; // 2 byte
+            c = 'a';
+
+            // 문자열
+            string str;
+            str = "Hello World";
+
+            Console.WriteLine(str);
         }
     }
 }
