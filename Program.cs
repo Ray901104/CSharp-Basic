@@ -39,6 +39,19 @@ namespace CSharp
             str = "Hello World";
 
             Console.WriteLine(str);
+
+            // 형변환
+            // 1. 바구니 크기가 다른 경우!
+            int a = 1000;
+            short s = (short) a;
+            
+            // 2. 바구니 크기는 같지만 부호가 다를 경우
+            byte ub = 255;
+            sbyte sb = (sbyte) ub;
+            
+            // 3. 소수 변환
+            f = 3.1414f;
+            d = f;
         }
     }
 }
