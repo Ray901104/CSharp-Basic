@@ -77,11 +77,11 @@ namespace CSharp
             
             // 비교 연산자
             // < <= > >= == !=
-            bool b = hp < 100;
-            Console.WriteLine(b);
+            // bool b = hp < 100;
+            // Console.WriteLine(b);
 
-            b = (hp == 101);
-            Console.WriteLine(b);
+            // b = (hp == 101);
+            // Console.WriteLine(b);
 
             bool isAlive = (hp > 0);
             
@@ -90,16 +90,46 @@ namespace CSharp
             
             // && - AND, || - OR, ! - NOT
             // a = 살아있는 고렙 유저인가?
-            bool a = isAlive && isHighLevel;
-            Console.WriteLine(a);
+            // bool a = isAlive && isHighLevel;
+            // Console.WriteLine(a);
 
             // b = 살아있거나, 고렙 유저인가?
-            b = isAlive || isHighLevel;
-            Console.WriteLine(b);
+            // b = isAlive || isHighLevel;
+            // Console.WriteLine(b);
             
             // c = 죽은 유저인가?
             bool c = !isAlive;
             Console.WriteLine(c);
+            
+            // 비트 연산자
+            // << >> %(AND) |(OR) ^(XOR) ~(NOT)
+            uint num = 1;
+            num = num << 3;
+            Console.WriteLine(num);
+
+            num = num >> 2;
+            Console.WriteLine(num);
+            
+            num = num % 3;
+            Console.WriteLine(num);
+            
+            num = num | 3;
+            Console.WriteLine(num);
+            
+            num = num ^ 3;
+            Console.WriteLine(num);
+
+            num = ~num;
+            Console.WriteLine(num);
+            
+            // ^(XOR) 활용 예시 - 암호화에 많이 사용
+            int id = 123;
+            int key = 401;
+            int a = id ^ key;
+            int b = a ^ key;
+            
+            Console.WriteLine(a); // 암호화된 id
+            Console.WriteLine(b); // 복호화된 id
         }
     }
 }
