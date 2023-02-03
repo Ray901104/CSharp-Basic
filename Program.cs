@@ -32,6 +32,29 @@ namespace CSharp
             {
                 Console.WriteLine("보입니다.");
             }
+            
+            // switch
+            choice = 4;
+            switch (choice)
+            {
+                case 0:
+                    Console.WriteLine("가위입니다.");
+                    break;
+                case 1:
+                    Console.WriteLine("바위입니다.");
+                    break;
+                case 2:
+                    Console.WriteLine("보입니다.");
+                    break;
+                default:
+                    Console.WriteLine("올바른 가위바위보를 내세요.");
+                    break;
+            }
+            
+            // 삼항연산자
+            int number = 25;
+            bool isPair = ((number % 2) == 0 ? true : false);
+            Console.WriteLine(isPair);
         }
     }
 }
