@@ -6,22 +6,32 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            // 연산 우선 순위
-            // 1. ++ --
-            // 2. * / %
-            // 3. + -
-            // 4. << >>
-            // 5. < >
-            // 6. == !=
-            // 7. &
-            // 8. ^
-            // 9. |
-            // ..
-            // 다 외울 수는 없으니, 헷갈린다 싶으면 괄호로 강제 우선순위를 부여하자!
-            
-            // var : 명시적으로 데이터형을 정하지 않는 자료형 (C# 과 같은 정적 타입 언어의 장점을 잃어버리므로 남용은 금물)
-            var num = 3;
-            var num2 = "Hello World";
+            int hp = 0;
+            bool isDead = (hp <= 0);
+
+            if (isDead)
+            {
+                Console.WriteLine("You are dead!");
+            }
+            else
+            {
+                Console.WriteLine("You are alive!");
+            }
+
+            int choice = 0; // 0 : 가위, 1 : 바위, 2: 보
+
+            if (choice == 0)
+            {
+                Console.WriteLine("가위입니다.");
+            }
+            else if (choice == 1)
+            {
+                Console.WriteLine("바위입니다.");
+            }
+            else
+            {
+                Console.WriteLine("보입니다.");
+            }
         }
     }
 }
