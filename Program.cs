@@ -4,6 +4,14 @@ namespace CSharp
 {
     class Program
     {
+        // 열거형
+        enum Choice
+        {
+            SCISSORS = 0,
+            ROCK = 1,
+            PAPER = 2
+        }
+        
         static void Main(string[] args)
         {
             // 0:가위 1:바위 2:보
@@ -14,38 +22,38 @@ namespace CSharp
 
             switch (choice)
             {
-                case 0:
+                case (int) Choice.SCISSORS:
                     Console.WriteLine("[당신] 가위!");
                     break;
-                case 1:
+                case (int) Choice.ROCK:
                     Console.WriteLine("[당신] 바위!");
                     break;
-                case 2:
+                case (int) Choice.PAPER:
                     Console.WriteLine("[당신] 보!");
                     break;
             }
             
             switch (aiChoice)
             {
-                case 0:
+                case (int) Choice.SCISSORS:
                     Console.WriteLine("[AI] 가위!");
                     break;
-                case 1:
+                case (int) Choice.ROCK:
                     Console.WriteLine("[AI] 바위!");
                     break;
-                case 2:
+                case (int) Choice.PAPER:
                     Console.WriteLine("[AI] 보!");
                     break;
             }
             
             // ver.1
-            // if (choice == 0)
+            // if (choice == SCISSORS)
             // {
-            //     if (aiChoice == 0)
+            //     if (aiChoice == SCISSORS)
             //     {
             //         Console.WriteLine("[결과] 무승부!");   
             //     }   
-            //     else if (aiChoice == 1)
+            //     else if (aiChoice == ROCK)
             //     {
             //         Console.WriteLine("[결과] 패배!");
             //     }
@@ -54,13 +62,13 @@ namespace CSharp
             //         Console.WriteLine("[결과] 승리!");
             //     }
             // }
-            // else if (choice == 1)
+            // else if (choice == ROCK)
             // {
-            //     if (aiChoice == 0)
+            //     if (aiChoice == SCISSORS)
             //     {
             //         Console.WriteLine("[결과] 승리!");
             //     }   
-            //     else if (aiChoice == 1)
+            //     else if (aiChoice == ROCK)
             //     {
             //         Console.WriteLine("[결과] 무승부!");
             //     }
@@ -71,11 +79,11 @@ namespace CSharp
             // }
             // else
             // {
-            //     if (aiChoice == 0)
+            //     if (aiChoice == SCISSORS)
             //     {
             //         Console.WriteLine("[결과] 패배!");
             //     }   
-            //     else if (aiChoice == 1)
+            //     else if (aiChoice == ROCK)
             //     {
             //         Console.WriteLine("[결과] 승리!");
             //     }
@@ -85,20 +93,25 @@ namespace CSharp
             //     }
             // }
             
+            // 상수
+            const int SCISSORS = 0;
+            const int ROCK = 1;
+            const int PAPER = 2;
+            
             // ver.2
             if (choice == aiChoice)
             {
                 Console.WriteLine("[결과] 무승부!");
             }
-            else if (choice == 0 && aiChoice == 2)
+            else if (choice == SCISSORS && aiChoice == PAPER)
             {
                 Console.WriteLine("[결과] 승리!");
             }
-            else if (choice == 1 && aiChoice == 0)
+            else if (choice == ROCK && aiChoice == SCISSORS)
             {
                 Console.WriteLine("[결과] 승리!");
             }
-            else if (choice == 2 && aiChoice == 1)
+            else if (choice == PAPER && aiChoice == ROCK)
             {
                 Console.WriteLine("[결과] 승리!");
             }
