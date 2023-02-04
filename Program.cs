@@ -6,26 +6,11 @@ namespace CSharp
     {
         static void Main(string[] args)
         {
-            int count = 0;
-         
-            // while
-            while (count < 5)
+            // for문
+            for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine("Hello World!");
-                count++;
+                Console.WriteLine((i+1) + " 번째");
             }
-
-            // do-while
-            Console.WriteLine("[Do-While] Start!");
-            string answer = "";
-            
-            do
-            {
-                Console.Write("나는 잘생겼다? (y/n) : ");
-                answer = Console.ReadLine();
-            } while (answer != "y");
-            
-            Console.WriteLine("정답!");
         }
     }
 }
