@@ -4,81 +4,38 @@ namespace CSharp
 {
     class Program
     {
-        // 메소드 (함수)
-        // 한정자 반환타입 이름(매개변수)
-        static void HelloWorld()
-        {
-            Console.WriteLine("Hello World!");
-        }
-        
-        // 덧셈함수
+        // 오버로딩
+        // 반환타입은 영향을 주지 않는다.
         static int Add(int a, int b)
         {
+            Console.WriteLine("Add int 호출");
             return a + b;
         }
-
-        static void AddOne(int number)
+        
+        // 선택적 매개변수
+        // 세 번째 매개변수로 값을 안넣으면 기본값으로 0을 사용하겠다는 의미
+        static int Add(int a, int b, int c = 0, float d = 1.0f, double e = 3.0)
         {
-            number = number + 1;
-        }
-
-        static void AddOne(ref int number)
-        {
-            number = number + 1;
-        }
-
-        static int AddOne2(int number)
-        {
-            return number + 1;
-        }
-
-        static void Swap(ref int a, ref int b)
-        {
-            int temp = a;
-            a = b;
-            b = temp;
+            Console.WriteLine("Add int 호출");
+            return a + b + c;
         }
         
-        // out : 값을 여러 개 반환해야 할 경우 사용한다.
-        // ref 와 같이 진퉁으로 작업한다.
-        static void Divide(int a, int b, out int result1, out int result2)
+        static float Add(float a, float b)
         {
-            result1 = a / b;
-            result2 = a % b;
+            Console.WriteLine("Add float 호출");
+            return a + b;
         }
         
         static void Main(string[] args)
         {
-            HelloWorld();
-            int result = Add(4, 5);
-            Console.WriteLine("result = " + result);
+            int ret1 = Add(2, 3);
+            Console.WriteLine("ret = " + ret1);
 
-            // 복사 (짭퉁) 참조 (진퉁)
-            int a = 0;
-            AddOne(a);
-            Console.WriteLine(a); // AddOne 에서 +1 한것은 복사된 값임
+            float ret2 = Add(2.0f, 3.2f);
+            Console.WriteLine("ret2 = " + ret2);
 
-            AddOne(ref a);
-            Console.WriteLine(a); // 참조값 a 를 넣었으므로 1이 증가됨
-
-            a = AddOne2(a);
-            Console.WriteLine(a);
-
-            int num1 = 1;
-            int num2 = 2;
-            Swap(ref num1, ref num2);
-            Console.WriteLine("num1 = " + num1);
-            Console.WriteLine("num2 = " + num2);
-            
-            // out
-            int num3 = 10;
-            int num4 = 3;
-
-            int result1;
-            int result2;
-            Divide(num3, num4, out result1, out result2);
-            Console.WriteLine("result1 = " + result1);
-            Console.WriteLine("result2 = " + result2);
+            // d 자리에만 2.0f 를 넣어주고 나머지 (c, e) 는 기본값을 사용하겠다는 의미
+            Add(1, 2, d: 2.0f);
         }
     }
 }
