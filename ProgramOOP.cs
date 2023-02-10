@@ -12,6 +12,7 @@ namespace CSharp
     
     /**
      * Knight 객체 설계
+     * 참조
      */
     class Knight
     {
@@ -19,6 +20,14 @@ namespace CSharp
         public int hp;
         public int attack;
 
+        public Knight Clone()
+        {
+            Knight knight = new Knight();
+            knight.hp = hp;
+            knight.attack = attack;
+            return knight;
+        }
+        
         // 기능
         public void Move()
         {
@@ -33,13 +42,43 @@ namespace CSharp
     
     class ProgramOOP
     {
+        // 복사
+        struct Mage
+        {
+            public int hp;
+            public int attack;
+        }
+    
+        static void KillMage(Mage mage)
+        {
+            mage.hp = 0;
+        }
+        
+        static void KillKnight(Knight knight)
+        {
+            knight.hp = 0;
+        }
+        
         static void Main(string[] args)
         {
+            Mage mage;
+            mage.hp = 100;
+            mage.attack = 50;
+            KillMage(mage);
+            
+            Mage mage2 = mage;
+            mage2.hp = 0;
+            
             Knight knight = new Knight();
             knight.hp = 100;
             knight.attack = 10;
-            knight.Move();
-            knight.Attack();
+            // knight.Move();
+            // knight.Attack();
+            KillKnight(knight);
+
+            // 서로 분리된 객체가 됨
+            Knight knight2 = knight.Clone();
+            knight2.hp = 10;
         }
     }
 }
