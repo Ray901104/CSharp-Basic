@@ -20,6 +20,20 @@ namespace CSharp
         public int hp;
         public int attack;
 
+        // 생성자
+        public Knight()
+        {
+            hp = 200;
+            attack = 20;
+            Console.WriteLine("생성자 호출!");
+        }
+        
+        public Knight(int hp) : this()
+        {
+            this.hp = hp;
+            Console.WriteLine("매개변수 생성자 호출!");
+        }
+        
         public Knight Clone()
         {
             Knight knight = new Knight();
@@ -69,9 +83,9 @@ namespace CSharp
             Mage mage2 = mage;
             mage2.hp = 0;
             
-            Knight knight = new Knight();
-            knight.hp = 100;
-            knight.attack = 10;
+            Knight knight = new Knight(50);
+            // knight.hp = 100;
+            // knight.attack = 10;
             // knight.Move();
             // knight.Attack();
             KillKnight(knight);
