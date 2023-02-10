@@ -67,6 +67,83 @@ namespace CSharp
                     break;
             }
         }
+
+        enum MonsterType
+        {
+            None = 0,
+            Slime = 1,
+            Orc = 2,
+            Skeleton = 3
+        }
+
+        struct Monster
+        {
+            public int hp;
+            public int attack;
+        }
+        
+        static void EnterField()
+        {
+            Console.WriteLine("필드에 접속했습니다!");
+            
+            // 랜덤으로 1~3 몬스터 중 하나를 리스폰
+            Monster monster;
+            CreateMonster(out monster);
+
+            Console.WriteLine("[1] 전투 모드 돌입");
+            Console.WriteLine("[2] 일정 확률로 마을로 도망가기");
+        }
+
+        static void CreateMonster(out Monster monster)
+        {
+            // 랜덤으로 1~3 몬스터 중 하나를 리스폰
+            Random random = new Random();
+            int randomMonster = random.Next(1, 4);
+
+            switch (randomMonster)
+            {
+                case (int) MonsterType.Slime:
+                    Console.WriteLine("슬라임이 스폰되었습니다!");
+                    monster.hp = 20;
+                    monster.attack = 2;
+                    break;
+                case (int) MonsterType.Orc:
+                    Console.WriteLine("오크가 스폰되었습니다!");
+                    monster.hp = 40;
+                    monster.attack = 4;
+                    break;
+                case (int) MonsterType.Skeleton:
+                    Console.WriteLine("스켈레톤이 스폰되었습니다!");
+                    monster.hp = 30;
+                    monster.attack = 3;
+                    break;
+                default:
+                    monster.hp = 0;
+                    monster.attack = 0;
+                    break;
+            }
+        }
+        
+        static void EnterGame()
+        {
+            while (true)
+            {
+                Console.WriteLine("마을에 접속했습니다!");
+                Console.WriteLine("[1] 필드로 나가기");
+                Console.WriteLine("[2] 로비로 돌아가기");
+
+                string input = Console.ReadLine();
+
+                if (input == "1")
+                {
+                    EnterField();
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
         
         static void Main(string[] args)
         {
@@ -82,9 +159,8 @@ namespace CSharp
                     // 기사(100/10) 궁수(75/12) 법사(50/15)
                     CreatePlayer(classType, out player);
                     Console.WriteLine($"HP {player.hp} Attack {player.attack}");
-                    
-                    // 필드로 가서 몬스터와 전투
-                    break;
+
+                    EnterGame();
                 }
             }
         }
