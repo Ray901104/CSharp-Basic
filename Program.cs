@@ -81,17 +81,62 @@ namespace CSharp
             public int hp;
             public int attack;
         }
-        
-        static void EnterField()
-        {
-            Console.WriteLine("필드에 접속했습니다!");
-            
-            // 랜덤으로 1~3 몬스터 중 하나를 리스폰
-            Monster monster;
-            CreateMonster(out monster);
 
-            Console.WriteLine("[1] 전투 모드 돌입");
-            Console.WriteLine("[2] 일정 확률로 마을로 도망가기");
+        static void Fight(ref Player player, ref Monster monster)
+        {
+            while (true)
+            {
+                // 플레이어가 몬스터 공격
+                monster.hp -= player.attack;
+                if (monster.hp <= 0)
+                {
+                    Console.WriteLine("몬스터를 처치했습니다!");
+                    Console.WriteLine($"남은 체력 : {player.hp}");
+                    break;
+                }
+                
+                // 몬스터의 반격
+                player.hp -= monster.attack;
+                if (player.hp <= 0)
+                {
+                    Console.WriteLine("죽었습니다.");
+                    break;
+                }
+            }
+        }
+        
+        static void EnterField(ref Player player)
+        {
+            while (true)
+            {
+                Console.WriteLine("필드에 접속했습니다!");
+            
+                // 랜덤으로 1~3 몬스터 중 하나를 리스폰
+                Monster monster;
+                CreateMonster(out monster);
+
+                Console.WriteLine("[1] 전투 모드 돌입");
+                Console.WriteLine("[2] 일정 확률로 마을로 도망가기");
+
+                string input = Console.ReadLine();
+                if (input == "1")
+                {
+                    Fight(ref player, ref monster);
+                }
+                else if (input == "2")
+                {
+                    // 33%
+                    Random random = new Random();
+                    int randomValue = random.Next(0, 101);
+                    if (randomValue <= 33)
+                    {
+                        Console.WriteLine("도망치는데 성공했습니다!");
+                        break;
+                    }
+                 
+                    Fight(ref player, ref monster);
+                }
+            }
         }
 
         static void CreateMonster(out Monster monster)
@@ -124,7 +169,7 @@ namespace CSharp
             }
         }
         
-        static void EnterGame()
+        static void EnterGame(ref Player player)
         {
             while (true)
             {
@@ -136,7 +181,7 @@ namespace CSharp
 
                 if (input == "1")
                 {
-                    EnterField();
+                    EnterField(ref player);
                 }
                 else
                 {
@@ -160,7 +205,7 @@ namespace CSharp
                     CreatePlayer(classType, out player);
                     Console.WriteLine($"HP {player.hp} Attack {player.attack}");
 
-                    EnterGame();
+                    EnterGame(ref player);
                 }
             }
         }
