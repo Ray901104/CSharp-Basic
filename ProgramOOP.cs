@@ -16,13 +16,37 @@ namespace CSharp
      */
     class Knight
     {
-        // 속성
+        // 속성 : 인스턴스마다 다른 값을 가질 수 있다.
+        // 인스턴스에 종속적
         public int hp;
         public int attack;
+        
+        // static : 오로지 1개만 존재
+        public static int count = 1;
+        public int id;
 
+        // static 함수 : Knight 클래스에 종속적
+        public static void Test()
+        {
+            // static 함수 안에서는 static 변수만 접근 가능
+            // this.hp = 100;
+            count++;
+        }
+
+        public static Knight CreateKnight()
+        {
+            Knight knight = new Knight();
+            knight.hp = 100;
+            knight.attack = 1;
+            return knight;
+        }
+        
         // 생성자
         public Knight()
         {
+            id = count;
+            count++;
+            
             hp = 200;
             attack = 20;
             Console.WriteLine("생성자 호출!");
@@ -93,6 +117,11 @@ namespace CSharp
             // 서로 분리된 객체가 됨
             Knight knight2 = knight.Clone();
             knight2.hp = 10;
+            
+            // static 함수 호출 : 클래스에 종속적
+            Knight knight4 = Knight.CreateKnight();
+            // Knight.Move(); --> knight.Move(); // 인스턴스에 종속적
+            Knight.Test();
         }
     }
 }
