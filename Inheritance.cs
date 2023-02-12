@@ -82,11 +82,11 @@ namespace CSharp
             knight.hp = 0;
         }
         
-        static void Main(string[] args)
-        {
-            Knight knight = new Knight();
-            knight.Move();
-            knight.Attack();
-        }
+        // static void Main(string[] args)
+        // {
+        //     Knight knight = new Knight();
+        //     knight.Move();
+        //     knight.Attack();
+        // }
     }
 }
