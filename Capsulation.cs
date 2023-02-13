@@ -94,22 +94,22 @@ namespace CSharp
             }
         }
         
-        static void Main(string[] args)
-        {
-            KnightCapsule knightCapsule = new KnightCapsule();
-            knightCapsule.SetHp(100);
-
-            Mage mage = new Mage();
-            Archer archer = new Archer();
-            SuperArcher superArcher = new SuperArcher();
-            EnterGame(archer);
-
-            // Mage 타입 -> Player 타입 (O)
-            // Player 타입 -> Mage 타입 (?)
-            // 자식 -> 부모 형변환은 자연스럽게 가능
-            // 부모 -> 자식 형변환은 주의 해야 함 (런타임 에러)
-            Player magePlayer = mage;
-            Mage mage2 = (Mage) magePlayer;
-        }
+        // static void Main(string[] args)
+        // {
+        //     KnightCapsule knightCapsule = new KnightCapsule();
+        //     knightCapsule.SetHp(100);
+        //
+        //     Mage mage = new Mage();
+        //     Archer archer = new Archer();
+        //     SuperArcher superArcher = new SuperArcher();
+        //     EnterGame(archer);
+        //
+        //     // Mage 타입 -> Player 타입 (O)
+        //     // Player 타입 -> Mage 타입 (?)
+        //     // 자식 -> 부모 형변환은 자연스럽게 가능
+        //     // 부모 -> 자식 형변환은 주의 해야 함 (런타임 에러)
+        //     Player magePlayer = mage;
+        //     Mage mage2 = (Mage) magePlayer;
+        // }
     }
 }
