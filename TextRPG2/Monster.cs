@@ -26,7 +26,7 @@
     {
         public Slime() : base(MonsterType.Slime)
         {
-            SetInfo(10, 1);
+            SetInfo(80, 1);
         }
     }
     
@@ -34,7 +34,7 @@
     {
         public Orc() : base(MonsterType.Orc)
         {
-            SetInfo(20, 2);
+            SetInfo(100, 2);
         }
     }
     
@@ -42,7 +42,7 @@
     {
         public Skeleton() : base(MonsterType.Skeleton)
         {
-            SetInfo(15, 5);
+            SetInfo(90, 5);
         }
     }
 }
