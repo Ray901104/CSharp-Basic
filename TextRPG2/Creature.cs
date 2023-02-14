@@ -30,6 +30,11 @@
             return hp;
         }
 
+        public void SetHP(int hp)
+        {
+            this.hp = hp;
+        }
+
         public int GetAttack()
         {
             return attack;

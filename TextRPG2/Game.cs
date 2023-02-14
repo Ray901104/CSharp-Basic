@@ -15,6 +15,8 @@ namespace CSharp
         private GameMode mode = GameMode.Lobby;
         private Player player = null;
         private Monster monster = null;
+        private int exp;
+        private int level;
         Random random = new Random();
 
         public void Process()
@@ -131,6 +133,18 @@ namespace CSharp
                 {
                     Console.WriteLine("몬스터를 처치하였습니다!");
                     Console.WriteLine($"플레이어 남은체력 : {player.GetHP()}");
+                    
+                    player.IncreaseExp(15);
+                    exp = player.GetExp();
+                    level = player.GetLevel(); 
+                    if (exp >= 100)
+                    {
+                        player.SetExp(0);
+                        player.SetHP(100);
+                        player.SetLevel(++level);
+                        Console.WriteLine($"레벨업 하였습니다! 현재 레벨 : {player.GetLevel()}");
+                    }
+                    Console.WriteLine($"경험치 : {player.GetExp()}");
                     break;
                 }
 

@@ -10,6 +10,8 @@
     public class Player : Creature
     {
         protected PlayerType type = PlayerType.None;
+        private int exp = 0;
+        private int level = 1;
 
         protected Player(PlayerType type) : base(CreatureType.Player)
         {
@@ -19,6 +21,31 @@
         public PlayerType GetPlayerType()
         {
             return type;
+        }
+
+        public int GetExp()
+        {
+            return exp;
+        }
+
+        public void SetExp(int exp)
+        {
+            this.exp = exp;
+        }
+
+        public int GetLevel()
+        {
+            return level;
+        }
+
+        public void SetLevel(int level)
+        {
+            this.level = level;
+        }
+        
+        public void IncreaseExp(int exp)
+        {
+            this.exp += exp;
         }
     }
 
