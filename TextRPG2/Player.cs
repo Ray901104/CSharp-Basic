@@ -7,31 +7,18 @@
         Archer = 2,
         Mage = 3
     }
-    public class Player
+    public class Player : Creature
     {
         protected PlayerType type = PlayerType.None;
-        protected int hp = 0;
-        protected int attack = 0;
 
-        protected Player(PlayerType type)
+        protected Player(PlayerType type) : base(CreatureType.Player)
         {
             this.type = type;
         }
 
-        public void SetInfo(int hp, int attack)
+        public PlayerType GetPlayerType()
         {
-            this.hp = hp;
-            this.attack = attack;
-        }
-
-        public int GetHP()
-        {
-            return hp;
-        }
-
-        public int GetAttack()
-        {
-            return attack;
+            return type;
         }
     }
 

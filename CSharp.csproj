@@ -52,6 +52,7 @@
     <Compile Include="ProgramOOP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Strings.cs" />
+    <Compile Include="TextRPG2\Creature.cs" />
     <Compile Include="TextRPG2\Monster.cs" />
     <Compile Include="TextRPG2\Player.cs" />
     <Compile Include="TextRPG2\TextRPG2.cs" />
