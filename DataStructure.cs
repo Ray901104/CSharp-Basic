@@ -4,6 +4,42 @@ namespace CSharp
 {
     public class DataStructure
     {
+        class Map
+        {
+            private int[,] tiles =
+            {
+                { 1, 1, 1, 1, 1 },
+                { 1, 0, 0, 0, 1 },
+                { 1, 0, 0, 0, 1 },
+                { 1, 0, 0, 0, 1 },
+                { 1, 1, 1, 1, 1 }
+            };
+            
+            public void Render()
+            {
+                ConsoleColor defaultColor = Console.ForegroundColor;
+                for (int y = 0; y < tiles.GetLength(1); y++)
+                {
+                    for (int x = 0; x < tiles.GetLength(0); x++)
+                    {
+                        if (tiles[y, x] == 1)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Green;
+                        }
+                        Console.Write('\u25cf');
+                    }
+                    Console.WriteLine();
+                }
+
+                Console.ForegroundColor = defaultColor;
+            }
+        }
+
+        
         static int GetHighestScore(int[] scores)
         {
             int highestScore = 0;
@@ -106,6 +142,17 @@ namespace CSharp
             Console.WriteLine("[GetAverageScore] : " + GetAverageScore(scoreArr));
             Console.WriteLine("[GetIndexOf] : " + GetIndexOf(scoreArr, 20));
             Sort(scoreArr);
+            
+            // 다차원 배열
+            int[,] intArr = new int[2, 3] { {1, 2, 3}, {1, 2, 3} };
+            Map map = new Map();
+            map.Render();
+            
+            // 가변 배열
+            int[][] cArr = new int[2][];
+            cArr[0] = new int[3];
+            cArr[1] = new int[6];
+            cArr[2] = new int[2];
         }
     }
 }
