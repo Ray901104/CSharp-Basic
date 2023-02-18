@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CSharp
 {
@@ -149,10 +150,52 @@ namespace CSharp
             map.Render();
             
             // 가변 배열
-            int[][] cArr = new int[2][];
+            int[][] cArr = new int[3][];
             cArr[0] = new int[3];
             cArr[1] = new int[6];
             cArr[2] = new int[2];
+            Console.WriteLine(cArr);
+            
+            // List
+            List<int> list = new List<int>();
+            for (int i = 0; i < 5; i++)
+            { 
+                list.Add(i);
+            }
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine(list[i]);
+            }
+
+            Console.WriteLine();
+            // 삽입 및 삭제
+            list.Insert(2, 999);
+            foreach (int num in list)
+            {
+                Console.WriteLine(num);
+            }
+
+            Console.WriteLine();
+            list.Remove(999);
+            foreach (int num in list)
+            {
+                Console.WriteLine(num);
+            }
+
+            Console.WriteLine();
+            list.RemoveAt(2);
+            foreach (int num in list)
+            {
+                Console.WriteLine(num);
+            }
+            
+            Console.WriteLine();
+            list.Clear();
+            foreach (int num in list)
+            {
+                Console.WriteLine(num);
+            }
         }
     }
 }
