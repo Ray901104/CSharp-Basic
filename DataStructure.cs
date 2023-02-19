@@ -5,6 +5,16 @@ namespace CSharp
 {
     public class DataStructure
     {
+        class MonsterClass
+        {
+            public int id;
+
+            public MonsterClass(int id)
+            {
+                this.id = id;
+            }
+        }
+        
         class Map
         {
             private int[,] tiles =
@@ -196,6 +206,25 @@ namespace CSharp
             {
                 Console.WriteLine(num);
             }
+            
+            // Dictionary
+            // 원리 : HashTable 
+            // 아주 큰 박스 [ ] 1만개 (1~10000)
+            // 예를 들어 10개 단위로 박스를 쪼개 놓는다. [1~10] [11~20] ... [9991 ~ 10000] 1천개의 박스로 줄어듦
+            // 7777 을 찾는다 --> 777번째 박스에 있다는것을 바로 알 수 있다.
+            Dictionary<int, MonsterClass> dictionary = new Dictionary<int, MonsterClass>();
+            for (int i = 0; i < 10000; i++)
+            {
+                dictionary.Add(i, new MonsterClass(i));
+            }
+
+            MonsterClass mon;
+            bool found = dictionary.TryGetValue(20000, out mon);
+
+            MonsterClass monster = dictionary[5000];
+
+            dictionary.Remove(7777);
+            dictionary.Clear();
         }
     }
 }
