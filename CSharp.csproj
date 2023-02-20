@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharp.DataStructure</StartupObject>
+    <StartupObject>CSharp.Generic</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Capsulation.cs" />
     <Compile Include="DataStructure.cs" />
+    <Compile Include="Generic.cs" />
     <Compile Include="Inheritance.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramOOP.cs" />
