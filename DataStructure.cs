@@ -218,8 +218,8 @@ namespace CSharp
                 dictionary.Add(i, new MonsterClass(i));
             }
 
-            MonsterClass mon;
-            bool found = dictionary.TryGetValue(20000, out mon);
+            MonsterClass monsterClass;
+            bool found = dictionary.TryGetValue(20000, out monsterClass);
 
             MonsterClass monster = dictionary[5000];
 
