@@ -52,6 +52,7 @@
     <Compile Include="Delegate.cs" />
     <Compile Include="Generic.cs" />
     <Compile Include="Inheritance.cs" />
+    <Compile Include="InputManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramOOP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

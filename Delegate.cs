@@ -27,6 +27,11 @@ namespace CSharp
             return 0;
         }
         
+        // 이벤트
+        static void OnInputTest()
+        {
+            Console.WriteLine("Input Received!");
+        }
         static void Main(string[] args)
         {
             // deleage (대리자)
@@ -37,6 +42,15 @@ namespace CSharp
             onClicked += TestDelegate2;
             
             ButtonPressed(onClicked);
+            
+            // 이벤트
+            InputManager inputManager = new InputManager();
+            inputManager.InputKey += OnInputTest;
+            
+            while (true)
+            {
+                inputManager.Update();
+            }
         }
     }
 }
