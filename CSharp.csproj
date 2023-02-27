@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharp.Lambda</StartupObject>
+    <StartupObject>CSharp.ExceptionHandling</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -50,6 +50,7 @@
     <Compile Include="Capsulation.cs" />
     <Compile Include="DataStructure.cs" />
     <Compile Include="Delegate.cs" />
+    <Compile Include="ExceptionHandling.cs" />
     <Compile Include="Generic.cs" />
     <Compile Include="Inheritance.cs" />
     <Compile Include="InputManager.cs" />
