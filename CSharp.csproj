@@ -56,7 +56,7 @@
     <Compile Include="Grammers\InputManager.cs" />
     <Compile Include="Grammers\Lambda.cs" />
     <Compile Include="Grammers\Nullable.cs" />
-    <Compile Include="Grammers\Program.cs" />
+    <Compile Include="Grammers\OOP.cs" />
     <Compile Include="Grammers\Property.cs" />
     <Compile Include="Grammers\Reflection.cs" />
     <Compile Include="Grammers\Strings.cs" />
